@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root{
+  --bg: #080a0f;
+  --bg2:#0e1219;
+  --line: rgba(255,255,255,0.08);
+  --accent-cyan: #00E5FF;
+  --accent-blue: #5B6CFF;
+  --accent-violet:#8B5CF6;
+  --accent-lime:#C6FF00;
+}
+
+*{font-variant-ligatures:common-ligatures;}
+html{scroll-behavior:smooth; color-scheme: dark;}
+body{
+  background: var(--bg);
+  color: #e8ecf3;
+  font-family:"Plus Jakarta Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  overscroll-behavior-y:none;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+::selection{background:rgba(0,229,255,0.22)}
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.12);border-radius:999px}
+::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,0.18)}
+
+.font-display{font-family:"Instrument Serif", Georgia, serif}
+.font-mono{font-family:"Fragment Mono", ui-monospace, monospace}
+
+.noise:before{
+  content:"";
+  position:fixed;inset:0;
+  pointer-events:none;
+  z-index:9999;
+  opacity:0.025;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.shimmer{
+  background: linear-gradient(110deg, rgba(255,255,255,0.04) 8%, rgba(255,255,255,0.12) 18%, rgba(255,255,255,0.04) 33%);
+  background-size:200% 100%;
+  animation: shimmer 2.2s linear infinite;
+}
+@keyframes shimmer{to{background-position-x:-200%}}
